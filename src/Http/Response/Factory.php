@@ -98,7 +98,13 @@ class Factory
         if ($collection->isEmpty()) {
             $class = get_class($collection);
         } else {
-            $class = get_class($collection->first());
+            $first = $collection->first();
+
+            if (is_object($first)) {
+                $class = get_class($first);
+            } else {
+                $class = get_class($collection);
+            }
         }
 
         if ($parameters instanceof \Closure) {
