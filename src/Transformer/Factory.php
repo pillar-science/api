@@ -166,6 +166,10 @@ class Factory
 
         $class = is_object($class) ? get_class($class) : $class;
 
+        if (is_array($class)) {
+            return false;
+        }
+
         return isset($this->bindings[$class]);
     }
 
