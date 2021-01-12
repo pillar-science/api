@@ -160,7 +160,7 @@ class Factory
      */
     protected function hasBinding($class)
     {
-        if ($this->isCollection($class) && ! $class->isEmpty()) {
+        if ($this->isCollection($class) && ! $class->isEmpty() && is_object($class->first())) {
             $class = $class->first();
         }
 
